@@ -1,0 +1,19 @@
+packages:
+  - github.com/graniticio/granitic/v2/ws/handler
+  - userapi/endpoint/user
+  - userapi/db
+
+components:
+  getUserHandler:
+    type: handler.WsHandler
+    HTTPMethod: GET
+    Logic:
+      type: user.GetUserLogic
+      DBHandler:
+        type: db.DBHandler
+        ModelName: "User"
+      DBConfig:
+        type: db.DBConfig
+        Region: conf:DBConfig.Region
+        Endpoint: conf:DBConfig.Endpoint
+    PathPattern: "^/users"
