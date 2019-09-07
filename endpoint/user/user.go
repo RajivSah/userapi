@@ -13,7 +13,7 @@ type AWSConfig interface {
 }
 
 type User struct {
-	uid    string
+	Uid    string
 	Name   string
 	Age    int
 	Gender string
@@ -22,7 +22,7 @@ type User struct {
 func unmarshall(item map[string]*dynamodb.AttributeValue) User {
 	age, _ := strconv.Atoi(*item["Age"].N)
 	return User{
-		uid:    *item["uid"].S,
+		Uid:    *item["Uid"].S,
 		Name:   *item["Name"].S,
 		Age:    age,
 		Gender: *item["Gender"].S,

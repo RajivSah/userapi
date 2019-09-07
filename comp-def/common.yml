@@ -17,3 +17,17 @@ components:
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"
+
+  addUserHandler:
+    type: handler.WsHandler
+    HTTPMethod: POST
+    Logic:
+      type: user.AddUserLogic
+      DBHandler:
+        type: db.DBHandler
+        ModelName: "User"
+      DBConfig:
+        type: db.DBConfig
+        Region: conf:DBConfig.Region
+        Endpoint: conf:DBConfig.Endpoint
+    PathPattern: "^/users"

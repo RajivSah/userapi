@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
-func (m DBHandler) All(config *aws.Config) (*dynamodb.ScanOutput, error) {
+func (m DBHandler) All(config *aws.Config) ([]map[string]*dynamodb.AttributeValue, error) {
 	svc := dynamodb.New(session.New(config))
 	input := &dynamodb.ScanInput{
 		TableName: aws.String(m.ModelName),
@@ -18,5 +18,5 @@ func (m DBHandler) All(config *aws.Config) (*dynamodb.ScanOutput, error) {
 		fmt.Println(err)
 		return nil, err
 	}
-	return result, nil
+	return result.Items, nil
 }
