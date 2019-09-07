@@ -4,23 +4,21 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/graniticio/granitic/v2/ws"
 )
 
 type DBReader interface {
-	All(config *aws.Config) ([]map[string]*dynamodb.AttributeValue, error)
+	All() ([]map[string]*dynamodb.AttributeValue, error)
 }
 
 type GetUserLogic struct {
 	DBHandler DBReader
-	DBConfig  AWSConfig
 }
 
 func (gl *GetUserLogic) Process(ctx context.Context, req *ws.Request, res *ws.Response) {
-	users, _ := gl.DBHandler.All(gl.DBConfig.Configuration())
+	users, _ := gl.DBHandler.All()
 	fmt.Println(users)
 	usersRes := []User{}
 	err := dynamodbattribute.UnmarshalListOfMaps(users, &usersRes)

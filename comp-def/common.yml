@@ -12,8 +12,6 @@ components:
       DBHandler:
         type: db.DBHandler
         ModelName: "User"
-      DBConfig:
-        type: db.DBConfig
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"
@@ -26,8 +24,6 @@ components:
       DBHandler:
         type: db.DBHandler
         ModelName: "User"
-      DBConfig:
-        type: db.DBConfig
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"

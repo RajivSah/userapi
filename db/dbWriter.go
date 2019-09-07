@@ -9,8 +9,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
-func (m DBHandler) Write(config *aws.Config, input interface{}) error {
-	svc := dynamodb.New(session.New(config))
+func (m DBHandler) Write(input interface{}) error {
+	svc := dynamodb.New(session.New(m.Configuration()))
 	marshalledInput, err := dynamodbattribute.MarshalMap(input)
 	if err != nil {
 		panic(fmt.Sprintf("failed to DynamoDB marshal Record, %v", err))
