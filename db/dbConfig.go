@@ -9,6 +9,10 @@ type DBConfig struct {
 	Endpoint string
 }
 
+type DBHandler struct {
+	ModelName string
+}
+
 func (dbConfig DBConfig) Configuration() *aws.Config {
 	config := &aws.Config{
 		Region:   aws.String(dbConfig.Region),

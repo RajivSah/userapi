@@ -16,17 +16,16 @@ type User struct {
 	uid    string
 	Name   string
 	Age    int
-	Gender int
+	Gender string
 }
 
 func unmarshall(item map[string]*dynamodb.AttributeValue) User {
 	age, _ := strconv.Atoi(*item["Age"].N)
-	gender, _ := strconv.Atoi(*item["Gender"].N)
 	return User{
 		uid:    *item["uid"].S,
 		Name:   *item["Name"].S,
 		Age:    age,
-		Gender: gender,
+		Gender: *item["Gender"].S,
 	}
 }
 
