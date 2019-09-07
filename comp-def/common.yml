@@ -27,3 +27,15 @@ components:
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"
+  
+  updateUserHandler:
+    type: handler.WsHandler
+    HTTPMethod: PUT
+    Logic:
+      type: user.UpdateUserLogic
+      DBHandler:
+        type: db.DBHandler
+        ModelName: "User"
+        Region: conf:DBConfig.Region
+        Endpoint: conf:DBConfig.Endpoint
+    PathPattern: "^/users"
