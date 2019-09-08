@@ -1,5 +1,8 @@
 github.com/aws/aws-sdk-go v1.15.77 h1:qlut2MDI5mRKllPC6grO5n9M8UhPQg1TIA9cYAkC/gc=
 github.com/aws/aws-sdk-go v1.15.77/go.mod h1:E3/ieXAlvM0XWO57iftYVDLLvQ824smPP3ATZkfNZeM=
+github.com/google/uuid v1.0.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
+github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/graniticio/granitic-yaml/v2 v2.0.0 h1:AEODrpo1rXU3u4Brtoh4njYyovjrUN5fdEJp8j/6IXI=
 github.com/graniticio/granitic-yaml/v2 v2.0.0/go.mod h1:xbAWJs7tUjwSF6UpEHpZOJR1KxKMDMTAwOcX6VLs5XY=
 github.com/graniticio/granitic/v2 v2.0.0/go.mod h1:eX2bLqj4d6rYNVb0pC0Gk1f6vAC8QFbcI3INetQMBnk=

@@ -19,7 +19,6 @@ type GetUserLogic struct {
 
 func (gl *GetUserLogic) Process(ctx context.Context, req *ws.Request, res *ws.Response) {
 	users, _ := gl.DBHandler.All()
-	fmt.Println(users)
 	usersRes := []User{}
 	err := dynamodbattribute.UnmarshalListOfMaps(users, &usersRes)
 	if err != nil {

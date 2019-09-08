@@ -2,8 +2,8 @@
 Facilities:
   HTTPServer: true
   JSONWs: true
+  ServiceErrorManager: true
   #RuntimeCtl: true
-  #ServiceErrorManager: true
 HTTPServer:
   Address: 0.0.0.0
   Port: 8001
@@ -15,3 +15,20 @@ ApplicationLogger:
 DBConfig:
   Region: "us-west-2"
   Endpoint: "http://localhost:8000"
+AddUserRules:
+  - ["Name", "STR:INVALID_NAME", "REQ:INVALID_NAME", "HARDTRIM", "LEN:2-100:INVALID_NAME_LENGTH"]
+  - ["Age", "INT:INVALID_AGE", "REQ:INVALID_AGE"]
+  - ["Gender", "STR:INVALID_GENDER", "REQ:INVALID_GENDER", "REG:^(Male|Female)$:INVALID_GENDER"]
+UpdateUserRules:
+  - ["Uid", "STR:INVALID_UID", "REQ:INVALID_UID", "HARDTRIM", "LEN:36-36:INVALID_UID_LENGTH"]
+  - ["Name", "STR:INVALID_NAME", "REQ:INVALID_NAME", "HARDTRIM", "LEN:2-100:INVALID_NAME_LENGTH"]
+  - ["Age", "INT:INVALID_AGE", "REQ:INVALID_AGE"]
+  - ["Gender", "STR:INVALID_GENDER", "REQ:INVALID_GENDER", "REG:^(Male|Female)$:INVALID_GENDER"]
+serviceErrors:
+  - ["C", "INVALID_NAME", "Name is a required field and should be a string"]
+  - ["C", "INVALID_NAME_LENGTH", "Length of name should be greater than 2 and less than hundred"]
+  - ["C", "INVALID_AGE", "AGE is a required field and should be an int."]
+  - ["C", "INVALID_GENDER", "GENDER is a required field and should be one of Male of Female."]
+  - ["C", "INVALID_UID", "UID is a required field and should be a string."]
+  - ["C", "INVALID_UID_LENGTH", "Length of name should be 36"]
+

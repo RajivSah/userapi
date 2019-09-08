@@ -1,5 +1,6 @@
 packages:
   - github.com/graniticio/granitic/v2/ws/handler
+  - github.com/graniticio/granitic/v2/validate
   - userapi/endpoint/user
   - userapi/db
 
@@ -27,6 +28,9 @@ components:
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"
+    AutoValidator:
+      type: validate.RuleValidator
+      Rules: conf:AddUserRules
   
   updateUserHandler:
     type: handler.WsHandler
@@ -39,3 +43,6 @@ components:
         Region: conf:DBConfig.Region
         Endpoint: conf:DBConfig.Endpoint
     PathPattern: "^/users"
+    AutoValidator:
+      type: validate.RuleValidator
+      Rules: conf:UpdateUserRules
