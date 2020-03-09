@@ -2,8 +2,7 @@
 
 ### Create table
 ```
-aws dynamodb create-table --table-name User --attribute-definitions AttributeName=Uid,AttributeType=S 
---key-schema AttributeName=Uid,KeyType=HASH --endpoint-url http://localhost:8000
+aws dynamodb create-table --table-name User --attribute-definitions AttributeName=Uid,AttributeType=S --key-schema AttributeName=Uid,KeyType=HASH --endpoint-url http://localhost:8000 --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
 ```
 
 #### Create user
