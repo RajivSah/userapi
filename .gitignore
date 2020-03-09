@@ -1,2 +1,5 @@
 bindings*
 userapi
+access.log
+main
+!main.go
